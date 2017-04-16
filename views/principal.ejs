@@ -27,9 +27,12 @@
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation -->
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca por arquivos...">
+
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Upload arquivo</a>
+        <a class="mdl-navigation__link" href="">Cadastro Usuários</a>
+        <a class="mdl-navigation__link" href="">Sair</a>
       </nav>
     </div>
   </header>
@@ -53,37 +56,92 @@
 
             <button class="accordion">Declaração IR</button>
             <div class="panel">
-              <table>
-                <tr>
-                  <th>Nome</th>
-                  <th>Descrição</th>
-                  <th>Tipo</th>
-                  <th>Proprietário</th>
-                </tr>
-                <tr>
-                  <td>Arquivo do Zeno</td>
-                  <td>meu arquivo</td>
-                  <td>Texto</td>
-                  <td>Zeno França Jr</td>
-                </tr>
-                <tr>
-                  <td>Arquivo da Jéssica</td>
-                  <td>arquivo dela</td>
-                  <td>Imagem</td>
-                  <td>Jéssica</td>
-                </tr>
+              <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                    <th class="mdl-data-table__cell--non-numeric">Descrição</th>
+                    <th class="mdl-data-table__cell--non-numeric">Tipo</th>
+                    <th class="mdl-data-table__cell--non-numeric">Proprietário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Zeno França Jr</td>
+                  </tr>
+
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Jéssica </td>
+                  </tr>
                 
+                </tbody>
               </table>
             </div>
 
             <button class="accordion">Docs Geral</button>
             <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                    <th class="mdl-data-table__cell--non-numeric">Descrição</th>
+                    <th class="mdl-data-table__cell--non-numeric">Tipo</th>
+                    <th class="mdl-data-table__cell--non-numeric">Proprietário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Zeno França Jr</td>
+                  </tr>
+
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Jéssica </td>
+                  </tr>
+                
+                </tbody>
+              </table>
             </div>
 
             <button class="accordion">Publico</button>
             <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <table id='myTable' class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                    <th class="mdl-data-table__cell--non-numeric">Descrição</th>
+                    <th class="mdl-data-table__cell--non-numeric">Tipo</th>
+                    <th class="mdl-data-table__cell--non-numeric">Proprietário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Zeno</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Zeno França Jr</td>
+                  </tr>
+
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Declaração IR Jéssica</td>
+                    <td class="mdl-data-table__cell--non-numeric">Texto</td>
+                    <td class="mdl-data-table__cell--non-numeric">Jéssica </td>
+                  </tr>
+                
+                </tbody>
+              </table>
             </div>
 
             
@@ -122,6 +180,10 @@
                     }
                 }
             }
-            </script>
+</script>
+
+
+
+
 </body>
 </html>
