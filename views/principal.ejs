@@ -26,8 +26,8 @@
       <span class="mdl-layout-title">Moustache GED</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-      
-      
+
+
 
       <!-- Navigation -->
       <nav class="mdl-navigation">
@@ -38,21 +38,21 @@
       </nav>
     </div>
   </header>
-  
+
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here -->
-    
-    
 
-  
-   
+
+
+
+
 
       <div class="tab">
         <button class="tablinks" onclick="openDpto(event, 'Contabilidade')" id="defaultOpen">Contabilidade</button>
         <button class="tablinks" onclick="openDpto(event, 'Compras')">Compras</button>
         <button class="tablinks" onclick="openDpto(event, 'RH')">RH</button>
       </div>
-      
+
       <div id="Contabilidade" class="tabcontent">
         <h3>Contabilidade</h3>
 
@@ -68,16 +68,20 @@
     <th>Proprietário</th>
   </tr>
   <tr>
-    <%for(var i=0;i<lista.length;i++) {%>
-      <tr>
-          <td><%=lista[i].nome%></td>
-          <td><%=lista[i].tipo%></td>
-          <td><%=lista[i].descricao%></td>
-          <td><%=lista[i].proprietario%></td>
-      </tr>
-    <%}%>
+    <%for(var i=0; i < lista.length; i++) {%>
+                <tr>
+                    <td><%=lista[i].nome%></td>
+                    <td><%=lista[i].tipo%></td>
+                    <td><%=lista[i].descricao%></td>
+                    <td><%=lista[i].proprietario%></td>
+                </tr>
+            <%}%>
+    <td>Arquivo 01</td>
+    <td>Texto</td>
+    <td>Arquivo de texto para teste</td>
+    <td>Zeno França Jr</td>
   </tr>
-  
+
 </table>
 
 <script>
@@ -95,7 +99,7 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
-    }       
+    }
   }
 }
 </script>
@@ -129,7 +133,7 @@ function myFunction() {
                     <td class="mdl-data-table__cell--non-numeric">Texto</td>
                     <td class="mdl-data-table__cell--non-numeric">Jéssica </td>
                   </tr>
-                
+
                 </tbody>
               </table>
             </div>
@@ -159,16 +163,16 @@ function myFunction() {
                     <td class="mdl-data-table__cell--non-numeric">Texto</td>
                     <td class="mdl-data-table__cell--non-numeric">Jéssica </td>
                   </tr>
-                
+
                 </tbody>
               </table>
             </div>
 
-            
+
       </div>
 
 <div id="Compras" class="tabcontent">
-    
+
 
 
 

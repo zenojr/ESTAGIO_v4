@@ -1,21 +1,15 @@
-//var connectionFactory = require('../infra/connectionFactory');
 
-module.exports = function(app){
-	app.get('/login',function(req,res){
-		
-		var connection = app.infra.connectionFactory();
-		var usuariosBanco = app.infra.usuariosBanco(connection);
-
-		usuariosBanco.lista(connection,function(err,results){
-			res.render('login',{lista:results});
-			console.log(results);
-
-		});
-		res.render('login');
-		connection.end();
-
-		
-	});
-
-
+module.exports = function(app) {
+    app.get("/login",function(req, res) {
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+        	host : 'localhost',
+        	user : 'root',
+        	password : 'pass@word1',
+        	database : 'GED'
+        });
+        connection.query('select * from usuario', function(err,results){
+        	res.render('login', {lista:results});
+        });
+    });
 }
