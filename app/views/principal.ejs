@@ -31,7 +31,7 @@
 
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="busca">Busca</a>
+        <a class="mdl-navigation__link" href="busca">Busca Avançada</a>
         <a class="mdl-navigation__link" href="">Upload arquivo</a>
         <a class="mdl-navigation__link" href="">Cadastro Usuários</a>
         <a class="mdl-navigation__link" href="">Sair</a>
@@ -68,14 +68,7 @@
     <th>Proprietário</th>
   </tr>
   <tr>
-    <%for(var i=0; i < lista.length; i++) {%>
-                <tr>
-                    <td><%=lista[i].nome%></td>
-                    <td><%=lista[i].tipo%></td>
-                    <td><%=lista[i].descricao%></td>
-                    <td><%=lista[i].proprietario%></td>
-                </tr>
-            <%}%>
+    
     <td>Arquivo 01</td>
     <td>Texto</td>
     <td>Arquivo de texto para teste</td>
