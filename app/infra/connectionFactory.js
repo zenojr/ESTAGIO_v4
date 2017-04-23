@@ -5,7 +5,7 @@ function createDBConnection() {
 			host : 'localhost',
 			user : 'root',
 			password : 'pass@word1',
-			database : 'teste'
+			database : 'estagio'
 		});
 }
 

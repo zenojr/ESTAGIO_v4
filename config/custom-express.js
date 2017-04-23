@@ -14,6 +14,8 @@ module.exports = function(){
 	app.set('views', './app/views');
 	app.use(express.static('./public'));//aponta para a pasta public utilizando o static do express
 
+	app.use(bodyParser.urlencoded({extended : true})); //middleware
+
 	/*load('routes', {cwd: 'app'})
         .then('infra')
         .into(app);*/

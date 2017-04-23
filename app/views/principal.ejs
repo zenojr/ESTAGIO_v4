@@ -31,8 +31,9 @@
 
       <!-- Navigation -->
       <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="principal">Home</a>
         <a class="mdl-navigation__link" href="busca">Busca Avançada</a>
-        <a class="mdl-navigation__link" href="">Upload arquivo</a>
+        <a class="mdl-navigation__link" href="upload">Upload arquivo</a>
         <a class="mdl-navigation__link" href="">Cadastro Usuários</a>
         <a class="mdl-navigation__link" href="">Sair</a>
       </nav>
@@ -73,7 +74,7 @@
           <td><%= lista[i].id %></td>
           <td><%= lista[i].nome %></td>
           <td><%= lista[i].descricao %></td>
-          <td><%= lista[i].preco %></td>
+          <td><%= lista[i].proprietario %></td>
       </tr>
   <% } %>
 

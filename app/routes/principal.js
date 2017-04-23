@@ -14,5 +14,20 @@ module.exports = function(app){
 
 		});
 
+	app.get('/upload', function(req,res){
+		res.render('upload');
+	});
+
+	app.post('/salva', function(req, res){
+		var arquivos = req.body;
+		console.log(arquivos)
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.salva(arquivos, function(err, results){
+			res.render('upload');
+		});
+	});
+
 
 }
