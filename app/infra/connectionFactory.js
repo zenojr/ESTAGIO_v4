@@ -1,16 +1,16 @@
 var mysql = require('mysql');
 
-function connectionFactory(){
+function createDBConnection() {
 	return mysql.createConnection({
 			host : 'localhost',
 			user : 'root',
 			password : 'pass@word1',
-			database : 'GED'
+			database : 'teste'
 		});
 }
 
 
-//wrapper
-module.exports = function(){
-	return connectionFactory();
+
+module.exports = function() {
+	return createDBConnection;
 }
