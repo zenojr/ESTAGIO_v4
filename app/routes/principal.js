@@ -27,11 +27,29 @@ module.exports = function(app){
 		produtosDAO.salva(arquivos, function(err, results){
 			res.redirect('/upload');
 		});
+
+		connection.end();
+
 	});
+
 
 	app.get('/cadastro', function(req,res){
 		res.render('cadastraUsuarios');
-	})
+	});
+
+	app.post('/saveUser', function(req, res){
+		var usuarios = req.body;
+		console.log(usuarios);
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.saveUser(usuarios, function(err, results){
+			res.redirect('/cadastro');
+		});
+
+		connection.end();
+
+	});
 
 
 }
