@@ -35,7 +35,11 @@
         <a class="mdl-navigation__link" href="busca">Busca Avançada</a>
         <a class="mdl-navigation__link" href="upload">Upload arquivo</a>
         <a class="mdl-navigation__link" href="cadastro">Cadastro Usuários</a>
+        <a class="mdl-navigation__link" href="cadastraGrupos">Cadastro Grupos</a>
+        <a class="mdl-navigation__link" href="cadastraDiretorios">Cadastro Diretórios</a>
         <a class="mdl-navigation__link" href="">Sair</a>
+
+
       </nav>
     </div>
   </header>
@@ -67,6 +71,7 @@
     <th>Tipo</th>
     <th>Descrição</th>
     <th>Proprietário</th>
+    <th>Arquivo</th>
   </tr>
 
   <% for(var i=0; i<lista.length; i++) {%>
@@ -79,7 +84,7 @@
   <% } %>
 
 </table>
-
+<!--Script de busca -->
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i;

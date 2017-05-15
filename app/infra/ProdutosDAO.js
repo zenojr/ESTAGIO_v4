@@ -15,6 +15,16 @@ ProdutosDAO.prototype.saveUser = function(usuario,callback){
 	this._connection.query('insert into usuarios set ?',usuario, callback);
 }
 
+ProdutosDAO.prototype.saveGroup = function(grupo,callback){
+	this._connection.query('insert into grupos set ?',grupo, callback);
+}
+
+
+ProdutosDAO.prototype.saveDir = function(diretorio,callback){
+	this._connection.query('insert into diretorios set ?',diretorio, callback);
+}
+
+
 module.exports = function(){
 	return ProdutosDAO;
 }

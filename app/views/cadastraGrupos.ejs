@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, inictial-scale=1, user-scalable=yes">
+    <title>Moustache GED</title>
+    <link rel="stylesheet" href="/css/principal.css">
+    <link rel="stylesheet" href="/css/menu_principal.css">
+    <script src="/js/principal_layout.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</head>
+<body>
+
+
+
+<main class="principal">
+
+<!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Moustache GED</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+
+
+
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="principal">Home</a>
+        <a class="mdl-navigation__link" href="busca">Busca Avançada</a>
+        <a class="mdl-navigation__link" href="upload">Upload arquivo</a>
+        <a class="mdl-navigation__link" href="cadastro">Cadastro Usuários</a>
+        <a class="mdl-navigation__link" href="cadastraGrupos">Cadastro Grupos</a>
+        <a class="mdl-navigation__link" href="cadastraDiretorios">Cadastro Diretórios</a>
+        <a class="mdl-navigation__link" href="">Sair</a>
+
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here -->
+
+    <div class="formulario">
+      <form action="/saveGroup" method="post">
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome do grupo">
+
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao" name="descricao" placeholder="Descrição do Grupo">
+
+
+
+        <input type="submit" value="Salvar Grupo">
+
+      </form>
+    </div>
+    </div>
+
+
+    </div>
+  </main>
+</div>
+</main>
+
+
+
+<!--Script dos accordions-->
+<script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function(){
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                }
+            }
+</script>
+
+
+
+
+</body>
+</html>
