@@ -49,8 +49,14 @@
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here -->
 
+      <!--  <form  action="/profile" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" accept=".jpg,.png">
+        <button>Enviar</button>
+      </form> -->
+
+
     <div class="formulario">
-      <form action="/salva" method="post">
+      <form action="/salva" method="post" enctype="multipart/form-data">
 
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Informe o nome do arquivo">
@@ -67,6 +73,9 @@
 
         <label for="proprietario">Proprietario</label>
         <input type="text" id="proprietario" name="proprietario" placeholder="Proprietario do arquivo">
+
+        <input type="file" name="avatar" accept=".jpg,.png">
+        
 
         <input type="submit" value="Upload">
 

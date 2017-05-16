@@ -26,23 +26,157 @@
       <span class="mdl-layout-title">Moustache GED</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
-      
-      
+
+
 
       <!-- Navigation -->
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Busca</a>
-        <a class="mdl-navigation__link" href="">Upload arquivo</a>
-        <a class="mdl-navigation__link" href="">Cadastro Usuários</a>
+        <a class="mdl-navigation__link" href="principal">Home</a>
+        <a class="mdl-navigation__link" href="busca">Busca Avançada</a>
+        <a class="mdl-navigation__link" href="upload">Upload arquivo</a>
+        <a class="mdl-navigation__link" href="cadastro">Cadastro Usuários</a>
+        <a class="mdl-navigation__link" href="cadastraGrupos">Cadastro Grupos</a>
+        <a class="mdl-navigation__link" href="cadastraDiretorios">Cadastro Diretórios</a>
         <a class="mdl-navigation__link" href="">Sair</a>
+
+
       </nav>
     </div>
   </header>
-  
+
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here -->
 
-    
+
+
+
+
+
+
+            <div class="tab">
+              <button class="tablinks" onclick="openDpto(event, 'Contabilidade')" id="defaultOpen">Contabilidade</button>
+              <button class="tablinks" onclick="openDpto(event, 'Compras')">Compras</button>
+              <button class="tablinks" onclick="openDpto(event, 'RH')">RH</button>
+            </div>
+
+            <div id="Contabilidade" class="tabcontent">
+              <h3>Contabilidade</h3>
+
+                  <button class="accordion">Declaração IR</button>
+                  <div class="panel">
+                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca por nome" title="Type in a name">
+                  <input type="text" id="myTipo" onkeyup="myFunction2()" placeholder="Busca por tipo" title="Type in a name">
+                  <input type="text" id="myDesc" onkeyup="myFunction3()" placeholder="Busca por descricao" title="Type in a name">
+                  <input type="text" id="myProp" onkeyup="myFunction4()" placeholder="Busca por proprietario" title="Type in a name">
+
+      <table id="myTable">
+        <tr class="header">
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Descrição</th>
+          <th>Proprietário</th>
+          <th>Arquivo</th>
+        </tr>
+
+        <% for(var i=0; i<lista.length; i++) {%>
+            <tr>
+                <td><%= lista[i].nome %></td>
+                <td><%= lista[i].tipo %></td>
+                <td><%= lista[i].descricao %></td>
+                <td><%= lista[i].proprietario %></td>
+            </tr>
+        <% } %>
+
+
+
+
+
+
+      </table>
+      <!--Script de busca -->
+      <script>
+      function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+
+      function myFunction2() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myTipo");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+
+      function myFunction3() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myDesc");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[2];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      function myFunction4() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myProp");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[3];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+
+      </script>
+                  </div>
+
+
+
+
+
 
     </div>
   </main>
@@ -70,7 +204,26 @@
 </script>
 
 
-
+<!--Script de busca -->
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 
 
+
 module.exports = function(app){
 	app.get('/principal', function(req, res) {
 			var connection = app.infra.connectionFactory();
@@ -13,6 +14,18 @@ module.exports = function(app){
 			connection.end();
 
 		});
+
+	app.get('/busca', function(req, res){
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.lista(function(err,results){
+			res.render('busca', {lista:results});
+			//res.send(results)
+		});
+
+		connection.end();
+	});
 
 	app.get('/upload', function(req,res){
 		res.render('upload');
@@ -33,27 +46,12 @@ module.exports = function(app){
 
 		//SCRIPT PARA UPLOAD DE ARQUIVOS COM MULTER
 
-		app.post('/profile', uploadFile.single('avatar'), function (req, res, next) {
-	  	// req.file is the `avatar` file
-	  	// req.body will hold the text fields, if there were any
-		})
 
-		app.post('/photos/upload', uploadFile.array('photos', 12), function (req, res, next) {
-	  	// req.files is array of `photos` files
-	  	// req.body will contain the text fields, if there were any
-		})
+		//FIM
 
-		var cpUpload = uploadFile.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
-		app.post('/cool-profile', cpUpload, function (req, res, next) {
-	  	// req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
-		  //
-		  // e.g.
-		  //  req.files['avatar'][0] -> File
-		  //  req.files['gallery'] -> Array
-		  //
-		  // req.body will contain the text fields, if there were any
-		})
+		//SCRIPT BUSCA AVANCADA
 
+		//FIM
 
 
 

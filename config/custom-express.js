@@ -3,8 +3,8 @@ var express = require('express');
 //var load = require('express-load');
 var consign = require('consign');
 var bodyParser = require('body-parser');
-var multer = require('multer');
-var uploadFile = ({dest:'uploads/'});
+
+
 
 
 
