@@ -24,6 +24,7 @@ module.exports = function(){
 	consign({cwd: 'app'})
 		.include('routes')
 		.then('infra')
+		.then('upload')
 		.into(app);
 
 	return app

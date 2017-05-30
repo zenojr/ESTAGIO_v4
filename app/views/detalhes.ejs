@@ -53,31 +53,35 @@
     <div class="page-content"><!-- Your content goes here -->
 
     <div class="formulario">
-      <form action="/salva" method="post">
+      <form action="/saveUser" method="post">
 
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Informe o nome do arquivo">
+        <label for="documento">Documento</label>
+        <input type="text" id="documento" name="documento" placeholder="Digite o nome do documento">
 
-        <label for="tipo">Tipo</label>
-        <select id="tipo" name="tipo">
-          <option value="texto">texto</option>
-          <option value="imagem">Imagem</option>
-        </select>
+        <label for="Publicação">Publicação</label>
+        <input type="text" id="Publicação" name="Publicação" placeholder="Publicação">
 
+        <label for="autor">Autor</label>
+        <input type="text" id="autor" name="autor" placeholder="Digite o autor">
+
+        <label for="titulo">Titulo</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Digite o titulo">
+
+        <label for="referencia">Referência</label>
+        <input type="text" id="referencia" name="referencia" placeholder="Referência">
+
+        <label for="palavrachave">Palavra chave</label>
+        <input type="text" id="palavrachave" name="palavrachave" placeholder="Digite a palavra chave">
 
         <label for="descricao">Descrição</label>
-        <input type="text" id="descricao" name="descricao" placeholder="Descrição do arquivo">
+        <input type="text" id="descricao" name="descricao" placeholder="Digite a descrição">
 
-        <label for="proprietario">Proprietario</label>
-        <input type="text" id="proprietario" name="proprietario" placeholder="Proprietario do arquivo">
+        <input type="submit" value="Pesquisar">
 
-        <input type="submit" value="Upload">
+        </div>
 
-      </form>
 
-      <form  action="/salva" method="post" enctype="multipart/form-data">
-        <input type="file" name="avatar" accept=".jpg,.png">
-        <button>Enviar</button>
+
       </form>
     </div>
     </div>

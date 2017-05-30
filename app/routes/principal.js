@@ -1,5 +1,6 @@
 
-
+var multer = require('multer');
+var upload = multer({dest : '../uploads/'})
 
 module.exports = function(app){
 	app.get('/principal', function(req, res) {
@@ -27,8 +28,19 @@ module.exports = function(app){
 		connection.end();
 	});
 
+	app.get('/detalhes', function(req, res){
+
+			res.render('detalhes');
+			//res.send(results)
+
+
+		connection.end();
+	});
+
 	app.get('/upload', function(req,res){
 		res.render('upload');
+
+		res.sendFile(__dirname);
 	});
 
 	app.post('/salva', function(req, res){
@@ -40,6 +52,10 @@ module.exports = function(app){
 		produtosDAO.salva(arquivos, function(err, results){
 			res.redirect('/upload');
 		});
+
+
+
+
 
 		connection.end();
 
