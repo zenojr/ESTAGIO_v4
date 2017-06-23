@@ -46,7 +46,6 @@
 
 
 
-
     </div>
   </header>
 
@@ -56,16 +55,8 @@
     <div class="formulario">
       <form action="/saveUser" method="post">
 
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
 
-        <label for="sobrenome">Sobrenome</label>
-        <input type="text" id="sobrenome" name="sobrenome" placeholder="Informe o seu sobrenome">
-
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
-
-        <label for="grupo">Grupo</label>
+        <label for="grupo">Grupo:</label>
         <select id="grupo" name="grupo">
           <option value="texto">Adm</option>
           <option value="imagem">Contabilidade</option>
@@ -73,36 +64,33 @@
         </select>
 
 
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login" placeholder="Informe o Login">
-
-        <input type="submit" value="Salvar Usuário">
-<h3>Usuários cadastrados</h3>
-      </form>
-
-      <table id="myTable">
-        <tr class="header">
-          <th>Nome</th>
-          <th>Sobrenome</th>
-          <th>Grupo</th>
-          <th>Login</th>
-        </tr>
-
-        <% for(var i=0; i<lista.length; i++) {%>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
             <tr>
-                <td><%= lista[i].nome %></td>
-                <td><%= lista[i].sobrenome %></td>
-                <td><%= lista[i].grupo %></td>
-                <td><%= lista[i].login %></td>
-                <td>
-
-                  <button onclick="/excluiUser" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Editar</button>
-
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Excluir</button>
-                </td>
+              <th class="mdl-data-table__cell--non-numeric">Diretórios </th>
             </tr>
-        <% } %>
-      </table>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Listar Nome Diretório 01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Listar Nome Diretório 02</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">Listar Nome Diretório 03</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <input type="submit" value="Salvar">
+        <input type="submit" value="Cancelar">
+
+        </div>
+
+
+
+      </form>
     </div>
     </div>
 

@@ -69,6 +69,27 @@
         <input type="submit" value="Salvar Diretório">
 
       </form>
+<h3>Diretórios Cadastrados</h3>
+<table id="myTable">
+  <tr class="header">
+    <th>Nome</th>
+    <th>Nivel</th>
+
+  </tr>
+
+  <% for(var i=0; i<lista.length; i++) {%>
+      <tr>
+          <td><%= lista[i].nome %></td>
+          <td><%= lista[i].nivel %></td>
+          <td>
+
+            <button onclick="/excluiUser" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Editar</button>
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Excluir</button>
+          </td>
+      </tr>
+  <% } %>
+</table>
     </div>
     </div>
 

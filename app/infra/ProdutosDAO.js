@@ -2,8 +2,27 @@ function ProdutosDAO(connection){
 	this._connection = connection;
 }
 
+
+ProdutosDAO.prototype.lista = function(callback){
+	this._connection.query('delete from usuarios where id=?',arquivos, callback);
+}
+
+
 ProdutosDAO.prototype.lista = function(callback){
 	this._connection.query('select * from arquivos', callback);
+}
+
+ProdutosDAO.prototype.listaGrupo = function(callback){
+	this._connection.query('select * from grupos', callback);
+}
+
+ProdutosDAO.prototype.listaDiretorios = function(callback){
+	this._connection.query('select * from diretorios', callback);
+}
+
+
+ProdutosDAO.prototype.listaUser = function(callback){
+	this._connection.query('select * from usuarios', callback);
 }
 
 

@@ -37,6 +37,15 @@ module.exports = function(app){
 		connection.end();
 	});
 
+	app.get('/gruposDir', function(req, res){
+
+			res.render('gruposDir');
+			//res.send(results)
+
+
+		connection.end();
+	});
+
 	app.get('/upload', function(req,res){
 		res.render('upload');
 
@@ -75,7 +84,20 @@ module.exports = function(app){
 
 //cadastro de usuarios
 	app.get('/cadastro', function(req,res){
-		res.render('cadastraUsuarios');
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.listaUser(function(err,results){
+
+			res.render('cadastraUsuarios', {lista:results});
+			//res.send(results)
+		});
+
+		connection.end();
+
+
+
+
 	});
 
 	app.post('/saveUser', function(req, res){
@@ -86,7 +108,23 @@ module.exports = function(app){
 
 		produtosDAO.saveUser(usuarios, function(err, results){
 
-			res.redirect('/cadastro');
+		res.redirect('/cadastro');
+
+		});
+
+		connection.end();
+
+	});
+
+	app.post('/excluiUser', function(req, res){
+		var usuarios = req.body;
+		console.log(usuarios);
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.excluiUser(usuarios, function(err, results){
+
+		res.redirect('/cadastro');
 
 		});
 
@@ -97,7 +135,21 @@ module.exports = function(app){
 //cadastro de grupos
 
 app.get('/cadastraGrupos', function(req,res){
-	res.render('cadastraGrupos');
+
+	var connection = app.infra.connectionFactory();
+	var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+	produtosDAO.listaGrupo(function(err,results){
+
+	res.render('cadastraGrupos', {lista:results});
+		//res.send(results)
+	});
+
+	connection.end();
+
+
+
+
 });
 
 app.post('/saveGroup', function(req, res){
@@ -120,7 +172,18 @@ app.post('/saveGroup', function(req, res){
 //cadastro de diretorios
 
 app.get('/cadastraDiretorios', function(req,res){
-	res.render('cadastraDiretorios');
+
+	var connection = app.infra.connectionFactory();
+	var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+	produtosDAO.listaDiretorios(function(err,results){
+
+	res.render('cadastraDiretorios', {lista:results});
+		//res.send(results)
+	});
+
+	connection.end();
+
 });
 
 app.post('/saveDir', function(req, res){
