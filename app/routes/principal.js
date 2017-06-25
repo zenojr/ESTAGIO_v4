@@ -16,6 +16,37 @@ module.exports = function(app){
 
 		});
 
+
+
+	app.get('/upload', function(req,res){
+		res.render('upload');
+
+		res.sendFile(__dirname);
+	});
+
+	app.post('/upload', upload.single('avatar'), function(req,res,next){
+		console.log(req.upload);
+	});
+
+	
+
+	app.post('/salva', function(req, res){
+		var arquivos = req.body;
+		console.log(arquivos)
+		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		produtosDAO.salva(arquivos, function(err, results){
+			res.redirect('/upload');
+		});
+
+		connection.end();
+
+
+
+	});
+
+
 	app.get('/busca', function(req, res){
 		var connection = app.infra.connectionFactory();
 		var produtosDAO = new app.infra.ProdutosDAO(connection);
@@ -46,42 +77,7 @@ module.exports = function(app){
 		connection.end();
 	});
 
-	app.get('/upload', function(req,res){
-		res.render('upload');
-
-		res.sendFile(__dirname);
-	});
-
-	app.post('/salva', function(req, res){
-		var arquivos = req.body;
-		console.log(arquivos)
-		var connection = app.infra.connectionFactory();
-		var produtosDAO = new app.infra.ProdutosDAO(connection);
-
-		produtosDAO.salva(arquivos, function(err, results){
-			res.redirect('/upload');
-		});
-
-
-
-
-
-		connection.end();
-
-
-		//SCRIPT PARA UPLOAD DE ARQUIVOS COM MULTER
-
-
-		//FIM
-
-		//SCRIPT BUSCA AVANCADA
-
-		//FIM
-
-
-
-	});
-
+	
 //cadastro de usuarios
 	app.get('/cadastro', function(req,res){
 		var connection = app.infra.connectionFactory();
