@@ -1,6 +1,16 @@
-
 var multer = require('multer');
-var upload = multer({dest : '../uploads/'})
+var upload = multer();
+var fs = require('fs');
+var storage = multer.diskStorage({
+	destination: function(req, file, cb){
+		cb(null, 'uploads/')
+	},
+	filename: function(req, file, cb){
+		var cont = 1;
+		cb(null, file.originalname);
+	}
+});
+var upload = multer({storage: storage});
 
 module.exports = function(app){
 	app.get('/principal', function(req, res) {
@@ -21,14 +31,69 @@ module.exports = function(app){
 	app.get('/upload', function(req,res){
 		res.render('upload');
 
-		res.sendFile(__dirname);
+		//res.sendFile(__dirname);
 	});
 
-	app.post('/upload', upload.single('avatar'), function(req,res,next){
-		console.log(req.upload);
+
+app.get('/upload2', function(req,res){
+		res.render('upload2');
+
+		//res.sendFile(__dirname);
 	});
 
-	
+
+app.post('/fazUpload', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file 
+  // req.body will hold the text fields, if there were any
+  
+
+  var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+
+ 
+var upload = multer({ storage: storage });
+
+  console.log(req.file);
+  fs.readdir('uploads/', function(err, files){
+
+  		var connection = app.infra.connectionFactory();
+		var produtosDAO = new app.infra.ProdutosDAO(connection);
+
+		
+  	
+  	var arquivos = files;
+  	
+  	for(var i = 0; i<arquivos.length;i++){
+  		var arquivoBanco = [arquivos[i]];
+  		
+  	}
+  	
+  	console.log('arquivos BANCO ' + arquivoBanco);
+
+
+  	produtosDAO.salvaCaminho(arquivoBanco, function(err, results){
+			console.log('VAI PRO BANCO' + arquivoBanco);
+			res.redirect('/upload2');
+	});
+
+	connection.end();
+
+  	//console.log(arquivos);
+
+  	
+  });
+  
+
+  
+
+});
 
 	app.post('/salva', function(req, res){
 		var arquivos = req.body;

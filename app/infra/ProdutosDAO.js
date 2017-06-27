@@ -30,6 +30,10 @@ ProdutosDAO.prototype.salva = function(arquivos,callback){
 	this._connection.query('insert into arquivos set ?',arquivos, callback);
 }
 
+ProdutosDAO.prototype.salvaCaminho = function(arquivoBanco,callback){
+	this._connection.query('insert into caminho set ?',arquivosBanco, callback);
+}
+
 ProdutosDAO.prototype.saveUser = function(usuario,callback){
 	this._connection.query('insert into usuarios set ?',usuario, callback);
 }
